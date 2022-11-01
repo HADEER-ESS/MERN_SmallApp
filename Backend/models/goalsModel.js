@@ -6,9 +6,15 @@ const goalSchema = mongoose.Schema({
         type : String,
         default : "no goal",
         require : true,
+    },
+    user : {
+        type : mongoose.Schema.Types.ObjectId,
+        require : true,
+        //ref hold linked model name
+        ref: "User",
     }
 },{
-    timeStamps : true
+    timestamps : true
 })
 
 module.exports = mongoose.model("Goals",goalSchema)
