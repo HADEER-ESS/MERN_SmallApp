@@ -15,6 +15,7 @@ app.use(express.urlencoded({extended : false})) //for urlencoded
 
 //import router for goals that I have create
 app.use("/api/goals" , require("./routers/goalsRouter"));
+app.use("/api/user" , require("./routers/userRouter"));
 connectDB()
 
 app.use(errorHandler)

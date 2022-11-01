@@ -1,6 +1,7 @@
 //import express and functions fron controller
 const express = require("express");
-const {getGoals , createGoal , updateGoal , deleteGoal} = require("../controller/goalsController")
+const {getGoals , createGoal , updateGoal , deleteGoal} = require("../controller/goalsController");
+const protect = require("../middleware/tokenMiddleware")
 //create instance
 const router = express()
 
@@ -34,8 +35,8 @@ const router = express()
 //router.delete("/:id" , deleteGoal)
 
 //to simplify it much more 
-router.route("/").get(getGoals).post(createGoal)
-router.route("/:id").put(updateGoal).delete(deleteGoal)
+router.route("/").get(protect, getGoals).post(protect, createGoal)
+router.route("/:id").put(protect, updateGoal).delete(protect, deleteGoal)
 
 //export
 module.exports = router;
