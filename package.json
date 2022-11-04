@@ -5,7 +5,9 @@
   "main": "server.js",
   "scripts": {
     "start": "node Backend/server.js",
-    "server": "nodemon Backend/server.js"
+    "server": "nodemon Backend/server.js",
+    "client": "npm start --prefix goals_frontend",
+    "dev" : "concurrently \"npm run server\" \"npm run client\""
   },
   "author": "Hadeer Essam",
   "license": "MIT",
@@ -19,6 +21,7 @@
     "mongoose": "^6.7.0"
   },
   "devDependencies": {
+    "concurrently": "^7.5.0",
     "nodemon": "^2.0.20"
   }
 }
