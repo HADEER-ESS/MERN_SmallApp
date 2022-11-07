@@ -99,11 +99,45 @@ code {
   justify-content: center;
   align-items: center;
   text-decoration: none;
+  color: white;
+  background-color: black;
+  padding-left: 7px;
+  padding-right: 7px;
+  border-radius: 13px;
 }
 
 .nav-item-icon:hover{
-  background-color: wheat;
+  opacity: .7;
   border-radius: 30px;
   border-color: black;
   border-width: 1px;
+}
+.goals_list{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 30px;
+}
+.goal-Container{
+  border-color: #6e6e6e;
+  border-width: 1px ;
+  border-style: solid;
+  border-radius: 17px;
+  background-color: antiquewhite;
+  padding-left: 13px;
+  width: 25%;
+  margin-right: 17px;
+}
+.delete_goal_container{
+  display: flex;
+  justify-content: right;
+  padding-right: 14px;
+  padding-bottom: 7px;
+}
+.delete-goal{
+  background-color: #E97777;
+  border-width: 1px;
+  border-radius: 7px;
+  border-color: transparent;
+  color: white;
 }
