@@ -15,9 +15,11 @@ const NavComponent = () => {
   };
   return (
     <div className="nav_container">
-      <div className="nav_logo">
-        <h3>Goals App</h3>
-      </div>
+      <Link to="/" style={{textDecoration:"none" , color:"black"}}>
+        <div className="nav_logo">
+          <h3>Goals App</h3>
+        </div>
+      </Link>
       {user ? (
         <ul className="nav_items">
           <li onClick={onClick}>

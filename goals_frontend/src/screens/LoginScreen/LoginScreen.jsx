@@ -1,8 +1,7 @@
-import React, { useState } from 'react';
-import {MdCelebration} from "react-icons/md";
+import React, { useEffect, useState } from 'react';
 import { login , reset } from "../../Redux/features/authSlicer"
 import {useNavigate} from "react-router-dom";
-import {useDispatch , useSelector} from "react-redux";
+import {useDispatch } from "react-redux";
 
 const LoginScreen = () => {
 
@@ -13,7 +12,6 @@ const LoginScreen = () => {
 
   const navigate = useNavigate()
   const dispatch = useDispatch()
-  const {} = useSelector(state => state.auth)
 
   const onChange = (e) => {
     setUserData((prev) => ({
@@ -33,13 +31,17 @@ const LoginScreen = () => {
     navigate("/")
   }
 
+  useEffect(()=>{
+    dispatch(reset());
+    // eslint-disable-next-line
+  },[])
+
   const {email , password} = userData
   return (
     <>
       <div className='form_container'>
         <div className='form_header'>
-          <h3>Welcome Back</h3>
-          <MdCelebration id='login'/>
+          <h3>Welcome Back 🎉</h3>
         </div>
         <form>
           <div className='form-container-field email'>

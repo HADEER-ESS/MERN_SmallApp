@@ -9,6 +9,7 @@ function App() {
   return (
     <BrowserRouter>
     <NavComponent/>
+    <hr style={{marginLeft:21 , marginRight:21}}/>
       <Routes>
         <Route path='/' element={<MainScreen/>}/>
         <Route path='/regist' element={<RegisterScreen/>}/>

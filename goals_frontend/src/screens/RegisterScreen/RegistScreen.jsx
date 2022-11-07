@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import {FaUser} from "react-icons/fa";
 import { useDispatch , useSelector} from "react-redux";
 import { useNavigate } from "react-router-dom";
+import Spinner from '../../components/spinner';
 import { register , reset } from "../../Redux/features/authSlicer";
 
 const RegistScreen = () => {
@@ -57,9 +58,7 @@ const RegistScreen = () => {
 
   if(isLoading){
     return(
-      <>
-        <h3>loading...</h3>
-      </>
+      <Spinner/>
     )
   }
 
