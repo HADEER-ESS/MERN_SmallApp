@@ -127,6 +127,7 @@ code {
   padding-left: 13px;
   width: 25%;
   margin-right: 17px;
+  margin-bottom: 17px;
 }
 .delete_goal_container{
   display: flex;

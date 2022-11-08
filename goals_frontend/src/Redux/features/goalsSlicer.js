@@ -63,9 +63,7 @@ export const goalsSlicer = createSlice({
     name : "goals",
     initialState,
     reducers :{
-        reset : (state) => {
-            state = initialState
-        }
+        reset : (state) => initialState
     },
     extraReducers : (builder) => {
         builder
