@@ -4,18 +4,17 @@ import { createGoal } from "../Redux/features/goalsSlicer";
 
 const GoalsForm = () => {
 
-    const [title , setTitle] = useState("")
+    const [title , setTitle] = useState('')
     const dispatch = useDispatch()
 
     const onSubmit = (e) => {
         e.preventDefault()
-        dispatch(createGoal(title))
+        dispatch(createGoal({title}))
         setTitle("")
     }
 
     const onTextChange = (e) => {
         setTitle(e.target.value)
-
     }
 
   return (
@@ -25,7 +24,7 @@ const GoalsForm = () => {
             <input onChange={onTextChange} placeholder='set you goals' type="text" name='goal' id='goal' value={title} style={{height:30 , paddingLeft:10}}/>
         </form>
         <div className='button-container'>
-            <button onClick={onSubmit} className='form-button' type='submite' style={{marginTop:30 }}>Add Goal</button>
+            <button onClick={onSubmit} className='form-button' type='submit' style={{marginTop:30 }}>Add Goal</button>
         </div>
     </>
   )

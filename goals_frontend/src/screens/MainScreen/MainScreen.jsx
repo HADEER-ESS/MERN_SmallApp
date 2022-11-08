@@ -1,19 +1,40 @@
 import { useEffect } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import GoalsForm from "../../components/GoalsForm";
 import GoalsList from "../../components/GoalsList";
+import Spinner from "../../components/spinner";
+import {reset , getGoals} from "../../Redux/features/goalsSlicer";
 
 
 const MainScreen = () => {
-  const user = useSelector(state => state.auth.user)
+  const {user} = useSelector(state => state.auth);
+  const { goals, isLoading, isError, message } = useSelector(
+    (state) => state.goal
+  );
   const navigate = useNavigate()
+  const dispatch = useDispatch()
 
   useEffect(()=>{
+
+    if(isError){
+      console.log(message)
+    }
+
     if(!user){
       navigate("/login")
     }
-  },[user , navigate])
+
+    dispatch(getGoals())
+
+    return () => {
+      dispatch(reset())
+    }
+  },[user , navigate , isError , message , dispatch])
+
+  if(isLoading){
+    return <Spinner/>
+  }
 
   return (
     <div style={{width : "50%" , marginLeft:"auto" , marginRight:"auto"}}>
@@ -22,7 +43,7 @@ const MainScreen = () => {
         <p style={{fontSize:22}}>Let's schedule your goals 👯‍♀️</p>
       </div>
       <GoalsForm/>
-      <GoalsList/>
+      <GoalsList goals={goals}/>
     </div>
   )
 }

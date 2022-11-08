@@ -1,5 +1,5 @@
 import axios from "axios";
-const goalsURL = "/api/goals/"
+const goalsURL = "/api/goals/";
 
 //create post using post request
 const createGoal = async(data , token) => {
@@ -9,9 +9,8 @@ const createGoal = async(data , token) => {
             Authorization : `Bearer ${token}`
         }
     }
-
+    //console.log("data " , data) //it return the text i wrote
     const response =await axios.post(goalsURL , data , config)
-
     return response.data
 }
 

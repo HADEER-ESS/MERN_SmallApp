@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { login , reset } from "../../Redux/features/authSlicer"
 import {useNavigate} from "react-router-dom";
-import {useDispatch } from "react-redux";
+import {useDispatch, useSelector } from "react-redux";
+import Spinner from '../../components/spinner';
 
 const LoginScreen = () => {
 
@@ -9,6 +10,8 @@ const LoginScreen = () => {
     email : "",
     password : ""
   })
+
+  const {user , isLoading, isError , isSuccess , message} = useSelector(state => state.auth)
 
   const navigate = useNavigate()
   const dispatch = useDispatch()
@@ -28,15 +31,24 @@ const LoginScreen = () => {
     }
 
     dispatch(login(data))
-    navigate("/")
   }
 
   useEffect(()=>{
+    if(isError){
+      console.log(message)
+    }
+    if(isSuccess || user){
+      navigate("/")
+    }
     dispatch(reset());
-    // eslint-disable-next-line
-  },[])
+  },[isError , isSuccess , message , dispatch , navigate , user])
 
   const {email , password} = userData
+
+  if(isLoading){
+    return <Spinner/>
+  }
+
   return (
     <>
       <div className='form_container'>

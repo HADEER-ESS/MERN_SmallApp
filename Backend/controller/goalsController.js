@@ -13,6 +13,7 @@ const getGoals = asyncHandler(async (req , res) =>{
 
 //POST Method
 const createGoal = asyncHandler(async (req , res) => {
+    
     const goal = await Goals.create({
         title : req.body.title,
         user : req.user.id
