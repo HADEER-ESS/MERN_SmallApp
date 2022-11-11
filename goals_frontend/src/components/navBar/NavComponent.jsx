@@ -2,16 +2,17 @@ import React from "react";
 import { FiLogIn, FiUser, FiLogOut } from "react-icons/fi";
 import { useSelector, useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
-import { logout } from "../../Redux/features/authSlicer";
+import { logout , reset} from "../../Redux/features/authSlicer";
 
 const NavComponent = () => {
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.auth);
   const navigate = useNavigate();
 
-  const onClick = () => {
+  const onLogout = () => {
     dispatch(logout());
-    navigate("/login");
+    dispatch(reset())
+    navigate("/");
   };
   return (
     <div className="nav_container">
@@ -20,17 +21,16 @@ const NavComponent = () => {
           <h3>Goals App</h3>
         </div>
       </Link>
+      <ul className="nav_items">
       {user ? (
-        <ul className="nav_items">
-          <li onClick={onClick}>
-            <Link to="/login" className="nav-item-icon">
+          <li >
+            <button onClick={onLogout} className="nav-item-icon">
               <FiLogOut />
               logout
-            </Link>
+            </button>
           </li>
-        </ul>
       ) : (
-        <ul className="nav_items">
+          <>
           <li>
             <Link to="/regist" className="nav-item-icon">
               <FiUser />
@@ -43,8 +43,9 @@ const NavComponent = () => {
               Login
             </Link>
           </li>
-        </ul>
+          </>
       )}
+      </ul>
     </div>
   );
 };

@@ -17,13 +17,9 @@ const MainScreen = () => {
 
   useEffect(()=>{
 
-    if(isError){
-      console.log(message)
-    }
+    if(isError) console.log(message)
 
-    if(!user){
-      navigate("/login")
-    }
+    if(!user) navigate("/login")
 
     dispatch(getGoals())
 
@@ -38,10 +34,10 @@ const MainScreen = () => {
 
   return (
     <div style={{width : "50%" , marginLeft:"auto" , marginRight:"auto"}}>
-      <div  style={{textAlign:"center"}}>
+      <section  style={{textAlign:"center"}}>
         <h1>Welcome {user && user.name} 🤓</h1>
         <p style={{fontSize:22}}>Let's schedule your goals 👯‍♀️</p>
-      </div>
+      </section>
       <GoalsForm/>
       <GoalsList goals={goals}/>
     </div>
