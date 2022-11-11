@@ -119,13 +119,9 @@ code {
   margin-top: 30px;
 }
 .goal-Container{
-  border-color: #6e6e6e;
-  border-width: 1px ;
-  border-style: solid;
-  border-radius: 17px;
-  background-color: antiquewhite;
-  padding-left: 13px;
-  width: 25%;
+  background-color: #EAEAEA;
+  text-align: center;
+  width: 35%;
   margin-right: 17px;
   margin-bottom: 17px;
 }
@@ -133,12 +129,12 @@ code {
   display: flex;
   justify-content: right;
   padding-right: 14px;
-  padding-bottom: 7px;
+  padding-top: 7px;
 }
 .delete-goal{
-  background-color: #E97777;
+  background-color: transparent;
   border-width: 1px;
   border-radius: 7px;
   border-color: transparent;
-  color: white;
+  color: black;
 }

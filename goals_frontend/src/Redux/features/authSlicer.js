@@ -51,7 +51,7 @@ export const logout = createAsyncThunk(
         await authService.logout()
     }
 )
-export const userReducer = createSlice({
+export const authSlicer = createSlice({
     name : "auth",
     initialState,
     reducers : {
@@ -91,7 +91,7 @@ export const userReducer = createSlice({
             state.isLoading = false;
             state.isSuccess = false;
             state.message = action.payload;
-            state.user =null;
+            state.user = null;
         })
         builder.addCase(logout.fulfilled , (state) => {
             state.user = null;
@@ -99,5 +99,5 @@ export const userReducer = createSlice({
     }
 })
 
-export const { reset } = userReducer.actions;
-export default userReducer.reducer;
+export const { reset } = authSlicer.actions;
+export default authSlicer.reducer;
